@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="5Vr-vS-G0I">
+            <objects>
+                <tabBarController id="opE-6F-t2I" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="H0I-WG-EIT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.96470588235294119" green="0.078431372549019607" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9DG-mI-dlE" kind="relationship" relationship="viewControllers" id="I7f-b5-0oX"/>
+                        <segue destination="8M8-D4-bRU" kind="relationship" relationship="viewControllers" id="p6i-9g-kdA"/>
+                        <segue destination="6V0-b0-wC4" kind="relationship" relationship="viewControllers" id="RN9-OA-xeK"/>
+                        <segue destination="tL9-wG-f2R" kind="relationship" relationship="viewControllers" id="VwB-iM-X4s"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daH-Cr-XmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447" y="-577"/>
+        </scene>
+        <!--订单-->
+        <scene sceneID="YLs-Do-xWH">
+            <objects>
+                <navigationController id="9DG-mI-dlE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="订单" image="order_normal" selectedImage="order_selected" id="myV-b9-Xao"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DA4-Mb-9q4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="nE1-Tq-E5e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1NU-zM-IL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-607" y="296"/>
+        </scene>
+        <!--新订单-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="NewOrderViewController" customModule="Seller_swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xKy-Qy-9uh">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrderCell" rowHeight="72" id="xsu-Ak-LtV">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xsu-Ak-LtV" id="30W-tU-kRA">
+                                            <frame key="frameInset" width="375" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WaD-YI-JBw">
+                                                    <frame key="frameInset" minX="127" minY="35" width="121" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="First"/>
+                                                        <segment title="Second"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="lCv-kZ-yIU"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="nhu-xJ-Smc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xKy-Qy-9uh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="80b-yH-4nk"/>
+                            <constraint firstItem="xKy-Qy-9uh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9sV-ez-pnn"/>
+                            <constraint firstAttribute="trailing" secondItem="xKy-Qy-9uh" secondAttribute="trailing" id="b5d-1Z-T9B"/>
+                            <constraint firstAttribute="bottom" secondItem="xKy-Qy-9uh" secondAttribute="bottom" id="wIU-q8-dfn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="新订单" id="5Ko-dz-OJZ"/>
+                    <connections>
+                        <outlet property="newOrderTableView" destination="xKy-Qy-9uh" id="oPW-k2-73m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-607.20000000000005" y="1038.5307346326838"/>
+        </scene>
+        <!--订单管理-->
+        <scene sceneID="WAJ-YB-MSh">
+            <objects>
+                <viewController id="VuZ-1p-lW6" customClass="ManageOrderViewController" customModule="Seller_swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Bz-1z-wv3"/>
+                        <viewControllerLayoutGuide type="bottom" id="771-u6-HRZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UbK-kI-jk8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.3921568627" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="订单管理" id="hYf-TI-7a9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kKe-0r-X56" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118" y="1039"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="Pur-fo-n7Z">
+            <objects>
+                <navigationController id="tL9-wG-f2R" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" image="my_normal" selectedImage="my_selected" id="81d-TA-zmb"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LEJ-ck-g3U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Bv6-oS-BCS" kind="relationship" relationship="rootViewController" id="589-eh-U9n"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RmO-il-aO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1598" y="296"/>
+        </scene>
+        <!--店铺-->
+        <scene sceneID="rqz-ve-hFd">
+            <objects>
+                <navigationController id="6V0-b0-wC4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="店铺" image="dp_normal" selectedImage="dp_selected" id="Htt-mU-aFN"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tfN-M2-FgL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Rjf-F3-iZu" kind="relationship" relationship="rootViewController" id="uDp-Nw-X6C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3gh-Oa-79J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="296"/>
+        </scene>
+        <!--订单管理-->
+        <scene sceneID="NHK-Wi-kDF">
+            <objects>
+                <navigationController id="8M8-D4-bRU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="订单管理" image="ordermng_normal" selectedImage="ordermng_selected" id="Tf0-Xm-UXd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y0S-1V-0JA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VuZ-1p-lW6" kind="relationship" relationship="rootViewController" id="xnM-GY-mxZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5fr-4F-FYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118" y="296"/>
+        </scene>
+        <!--店铺-->
+        <scene sceneID="g4h-6C-wEH">
+            <objects>
+                <viewController id="Rjf-F3-iZu" customClass="StoreViewController" customModule="Seller_swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f5S-C0-pFt"/>
+                        <viewControllerLayoutGuide type="bottom" id="MIr-UD-0g3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SUl-zS-Z8v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.17254901959999999" green="0.53725490200000003" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="店铺" id="mvb-eM-eBg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wty-EU-iRI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="1039"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="j4v-E8-Xp5">
+            <objects>
+                <viewController id="Bv6-oS-BCS" customClass="MyViewController" customModule="Seller_swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DFj-d8-lTt"/>
+                        <viewControllerLayoutGuide type="bottom" id="VMV-7A-N78"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OAu-rn-xGW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="我的" id="z8q-p9-hP3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VuH-Hl-O3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1598" y="1039"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dp_normal" width="25" height="25"/>
+        <image name="dp_selected" width="25" height="25"/>
+        <image name="my_normal" width="25" height="25"/>
+        <image name="my_selected" width="25" height="25"/>
+        <image name="order_normal" width="25" height="25"/>
+        <image name="order_selected" width="25" height="25"/>
+        <image name="ordermng_normal" width="25" height="25"/>
+        <image name="ordermng_selected" width="25" height="25"/>
+    </resources>
+</document>

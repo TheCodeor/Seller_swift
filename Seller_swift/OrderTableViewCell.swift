@@ -17,7 +17,22 @@ class OrderTableViewCell: UITableViewCell {
     let statusLabel = UILabel()
     let detailLabel = UILabel()
     let endLabel = UILabel()
-
+    
+    func setCellData(_ ordersModel:OrdersModel) {
+        
+        orderNumberLabel.text = "#\(ordersModel.orderId!)"
+        dateLabel.text = ordersModel.createTime
+        statusLabel.text = ordersModel.orderStatusStr
+        
+        let totalFee = String(describing: ordersModel.totalFee!)
+        let detailString = "实收￥\(totalFee)元（含配送费）"
+        let attStr = NSMutableAttributedString.init(string: detailString)
+        let totalFeeRange = (detailString as NSString).range(of: totalFee)
+        attStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: totalFeeRange)
+        
+        detailLabel.attributedText = attStr
+        endLabel.text = ordersModel.payStatusStr
+    }
 
     // Class 初始化
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -66,9 +81,12 @@ class OrderTableViewCell: UITableViewCell {
             make.height.equalTo(40)
         }
         
+       
+        
  
     }
     
+
     func creatTopView() -> UIView {
         
         let view = UIView()
@@ -156,6 +174,8 @@ class OrderTableViewCell: UITableViewCell {
         
         return view
     }
+    
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!

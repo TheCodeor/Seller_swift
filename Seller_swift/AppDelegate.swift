@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+ 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -30,10 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          */
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = CustomTabBarController()
+//        window?.rootViewController = CustomTabBarController()
+        let loginSB = UIStoryboard.init(name: "Login", bundle: Bundle.main)
+        let loginVC = loginSB.instantiateViewController(withIdentifier: "LoginNav")
+        window?.rootViewController = loginVC
         window?.makeKeyAndVisible()
-        
-        
   
         return true
     }

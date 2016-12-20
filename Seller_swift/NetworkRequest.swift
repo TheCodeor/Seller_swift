@@ -32,12 +32,14 @@ extension NetworkRequest {
             "osVersion":"8.1",
             "deviceType":"ios",
             "brandName":"iPhone Simulator",
-            "token": token,
-            "userId": userid,
+            "token": "B/+jnXOX7BGgZJRyzswXDsDStqHu3MBnird3asdeI+HeCKfogeFEimOFG+YdEfaT",
+            "userId": "",
             "data": params
         ]
-        
+        DLog(message: parameters)
+
         Alamofire.request("http://testapi.o2o.zhaioto.com/staff/v1/\(urlString)", method: HTTPMethod.post, parameters: parameters).responseJSON { (response) in
+            
             switch response.result{
             case .success:
                 if let value = response.result.value as? NSDictionary {

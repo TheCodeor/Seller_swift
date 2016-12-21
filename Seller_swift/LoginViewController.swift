@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Alamofire
+import CoreData
 
 class LoginViewController: UIViewController {
     
@@ -23,14 +24,15 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         phoneField.text = "13750440152"
         pswField.text = "123456789"
-    }
+        
+        UserInfoModel().getSeller()
+     }
 
     // MARK: - ACTION
     @IBAction func actionLogin(_ sender: Any) {
         
         let parameters: Parameters = ["mobile": phoneField.text!,
                                       "pwd": pswField.text!]
-        DLog(message: parameters)
             
         NetworkRequest.sharedInstance.postRequest("user.login", params: parameters, success: { response in
             
@@ -48,9 +50,10 @@ class LoginViewController: UIViewController {
 
     @IBAction func actionForgetPsw(_ sender: Any) {
         
-        
+        UserInfoModel().getSeller()
     }
     
+
     /*
     // MARK: - Navigation
 

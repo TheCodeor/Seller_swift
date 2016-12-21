@@ -10,6 +10,13 @@
 		6D6B786F1E093498004C6F50 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D6B786E1E093498004C6F50 /* Login.storyboard */; };
 		6D6B78711E0934D3004C6F50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B78701E0934D3004C6F50 /* LoginViewController.swift */; };
 		6D6B78731E093A0D004C6F50 /* FPEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B78721E093A0D004C6F50 /* FPEditView.swift */; };
+		6D6B78741E0A2578004C6F50 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7D0B221DB0903900669D94 /* Alamofire.framework */; };
+		6D6B787C1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B787A1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld */; };
+		6D6B787D1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B787A1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld */; };
+		6D6B787E1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B787A1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld */; };
+		6D6B78F31E0A8590004C6F50 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B78F21E0A8590004C6F50 /* UserInfoModel.swift */; };
+		6D6B78FC1E0A8F2E004C6F50 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B78FA1E0A8F2E004C6F50 /* User+CoreDataClass.swift */; };
+		6D6B78FD1E0A8F2E004C6F50 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B78FB1E0A8F2E004C6F50 /* User+CoreDataProperties.swift */; };
 		6D7D0B1A1DAF3D9E00669D94 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7D0B191DAF3D9E00669D94 /* OrderTableViewCell.swift */; };
 		6D7D0B211DAF5B6900669D94 /* SnapKit.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6D7D0B201DAF5B6900669D94 /* SnapKit.framework.dSYM */; };
 		6D947D511DAE3CD200415481 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D947D501DAE3CD200415481 /* AppDelegate.swift */; };
@@ -66,6 +73,10 @@
 		6D6B786E1E093498004C6F50 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		6D6B78701E0934D3004C6F50 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6D6B78721E093A0D004C6F50 /* FPEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPEditView.swift; sourceTree = "<group>"; };
+		6D6B787B1E0A71F2004C6F50 /* Seller_swift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Seller_swift.xcdatamodel; sourceTree = "<group>"; };
+		6D6B78F21E0A8590004C6F50 /* UserInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
+		6D6B78FA1E0A8F2E004C6F50 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D6B78FB1E0A8F2E004C6F50 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6D7D0B191DAF3D9E00669D94 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		6D7D0B201DAF5B6900669D94 /* SnapKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SnapKit.framework.dSYM; path = ../Carthage/Build/iOS/SnapKit.framework.dSYM; sourceTree = "<group>"; };
 		6D7D0B221DB0903900669D94 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -108,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6B78741E0A2578004C6F50 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +145,8 @@
 		6D947D441DAE3CD200415481 = {
 			isa = PBXGroup;
 			children = (
+				6D6B78FA1E0A8F2E004C6F50 /* User+CoreDataClass.swift */,
+				6D6B78FB1E0A8F2E004C6F50 /* User+CoreDataProperties.swift */,
 				6D947D4F1DAE3CD200415481 /* Seller_swift */,
 				6D947D641DAE3CD200415481 /* Seller_swiftTests */,
 				6D947D6F1DAE3CD200415481 /* Seller_swiftUITests */,
@@ -156,6 +170,7 @@
 			children = (
 				6D947D501DAE3CD200415481 /* AppDelegate.swift */,
 				6D6B78701E0934D3004C6F50 /* LoginViewController.swift */,
+				6D6B78F21E0A8590004C6F50 /* UserInfoModel.swift */,
 				6D947D861DAF212B00415481 /* CustomTabBarController.swift */,
 				6D947D881DAF217D00415481 /* CustomNavController.swift */,
 				6D947D7E1DAF1CB300415481 /* NewOrderViewController.swift */,
@@ -174,6 +189,7 @@
 				6D947D591DAE3CD200415481 /* LaunchScreen.storyboard */,
 				6D947D5C1DAE3CD200415481 /* Info.plist */,
 				6D7D0B201DAF5B6900669D94 /* SnapKit.framework.dSYM */,
+				6D6B787A1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld */,
 			);
 			path = Seller_swift;
 			sourceTree = "<group>";
@@ -261,7 +277,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = fanpeng;
 				TargetAttributes = {
 					6D947D4C1DAE3CD200415481 = {
@@ -361,8 +377,12 @@
 				6D6B78731E093A0D004C6F50 /* FPEditView.swift in Sources */,
 				6D947D811DAF1CFC00415481 /* ManageOrderViewController.swift in Sources */,
 				6D947D891DAF217D00415481 /* CustomNavController.swift in Sources */,
+				6D6B787C1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld in Sources */,
+				6D6B78FD1E0A8F2E004C6F50 /* User+CoreDataProperties.swift in Sources */,
+				6D6B78FC1E0A8F2E004C6F50 /* User+CoreDataClass.swift in Sources */,
 				6D947D8B1DAF2F7D00415481 /* UIColorHex.swift in Sources */,
 				6DB897821E0128E600DE6579 /* RequestModel.swift in Sources */,
+				6D6B78F31E0A8590004C6F50 /* UserInfoModel.swift in Sources */,
 				6D7D0B1A1DAF3D9E00669D94 /* OrderTableViewCell.swift in Sources */,
 				6D947D851DAF1D5F00415481 /* MyViewController.swift in Sources */,
 				6DB897841E0130C600DE6579 /* NetworkRequest.swift in Sources */,
@@ -375,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6B787D1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld in Sources */,
 				6D947D661DAE3CD200415481 /* Seller_swiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6B787E1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld in Sources */,
 				6D947D711DAE3CD200415481 /* Seller_swiftUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +462,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -490,6 +513,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -556,6 +580,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 287777Y9UG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Seller_swiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fyp.Seller-swiftTests";
@@ -571,6 +599,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 287777Y9UG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Seller_swiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fyp.Seller-swiftTests";
@@ -648,6 +680,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6D6B787A1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6D6B787B1E0A71F2004C6F50 /* Seller_swift.xcdatamodel */,
+			);
+			currentVersion = 6D6B787B1E0A71F2004C6F50 /* Seller_swift.xcdatamodel */;
+			path = Seller_swift.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6D947D451DAE3CD200415481 /* Project object */;
 }

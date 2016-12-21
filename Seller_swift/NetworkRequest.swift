@@ -22,37 +22,42 @@ class NetworkRequest {
 
 extension NetworkRequest {
     
-
     //MARK: - POST 请求
-    func postRequest(_ urlString : String, params : Parameters, success : @escaping (_ response : RequestModel)->(), failture : @escaping (_ error : Error)->()) {
+@discardableResult  func postRequest(_ urlString : String, params : Parameters, success : @escaping (_ response : RequestModel)->(), failture : @escaping (_ error : Error)->()) -> Alamofire.Request {
+        
+        //data的参数需要转换问json字符串传到后台
+        let data = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        let dataStr = NSString(data: data, encoding:String.Encoding.utf8.rawValue)!
         
         let parameters: Parameters = [
-            "deviceId":"EE16138D-18DD-43BD-89B7-9B15CC70C81B",
-            "appVersion":"3.4.3",
-            "osVersion":"8.1",
+            "deviceId":"A76AF494-FD79-4159-A6A0-9D736BCE3EBA",
+            "appVersion":"3.4.4",
+            "osVersion":"10.1",
             "deviceType":"ios",
-            "brandName":"iPhone Simulator",
-            "token": "B/+jnXOX7BGgZJRyzswXDsDStqHu3MBnird3asdeI+HeCKfogeFEimOFG+YdEfaT",
-            "userId": "",
-            "data": params
+            "brandName":"iPhone",
+            "token": token,
+            "userId": userid,
+            "data": dataStr
         ]
+        
         DLog(message: parameters)
 
-        Alamofire.request("http://testapi.o2o.zhaioto.com/staff/v1/\(urlString)", method: HTTPMethod.post, parameters: parameters).responseJSON { (response) in
-            
+       let request = Alamofire.request("http://testapi.o2o.zhaioto.com/staff/v1/\(urlString)", method: HTTPMethod.post, parameters: parameters).responseJSON { (response) in
+            DLog(message: "URL:http://testapi.o2o.zhaioto.com/staff/v1/\(urlString)")
+            DLog(message: response)
             switch response.result{
             case .success:
                 if let value = response.result.value as? NSDictionary {
                     let requestModel = RequestModel(Json:value)
-
                     success(requestModel)
-                    DLog(message: requestModel.data)
                 }
             case .failure(let error):
                 failture(error)
                 DLog(message: "error:\(error)")
             }
         }
+        
+        return request
     }
     
     //MARK: - GET 请求

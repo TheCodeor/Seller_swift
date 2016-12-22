@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCV-GP-g2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-363" y="212"/>
+            <point key="canvasLocation" x="159" y="218"/>
         </scene>
         <!--登录-->
         <scene sceneID="5ki-Go-vKu">
@@ -174,7 +174,6 @@
                                 </state>
                                 <connections>
                                     <action selector="actionForgetPsw:" destination="hl4-x4-yIx" eventType="touchUpInside" id="ft1-5S-ywy"/>
-                                    <segue destination="PyL-On-q90" kind="show" id="1WH-0x-oE7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxE-Hu-QA2">
@@ -218,15 +217,15 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="2ZV-4G-gMk"/>
                                 <exclude reference="28S-fF-h8W"/>
+                                <exclude reference="2ZV-4G-gMk"/>
                                 <exclude reference="jjJ-NH-hAJ"/>
                                 <exclude reference="WaV-TT-JNm"/>
                                 <exclude reference="Z08-5V-l0S"/>
                                 <exclude reference="zzh-sz-2ZK"/>
                                 <exclude reference="9yu-o4-GSS"/>
-                                <exclude reference="yRJ-Lv-AnX"/>
                                 <exclude reference="Mvc-7v-Hfh"/>
+                                <exclude reference="yRJ-Lv-AnX"/>
                             </mask>
                         </variation>
                     </view>

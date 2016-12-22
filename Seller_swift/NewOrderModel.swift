@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 
 
 class NewOrderModel {
@@ -17,15 +17,15 @@ class NewOrderModel {
     let amount: Double?
     var ordersList = [OrdersModel]()
     
-    init(dataJson:[String : Any]) {
+    init(dataJson:JSON) {
         
-        self.count = dataJson["count"] as? Int
-        self.ingCount = dataJson["ingCount"] as? Int
-        self.amount = dataJson["amount"] as? Double
-        let ordersArray = dataJson["orders"] as? NSArray
+        self.count = dataJson["count"].intValue
+        self.ingCount = dataJson["ingCount"].intValue
+        self.amount = dataJson["amount"].doubleValue
+        let ordersArray = dataJson["orders"].arrayValue
         
-        for order in ordersArray! {
-            let orderModel = OrdersModel(ordersJson: order as! [String : Any])
+        for order in ordersArray {
+            let orderModel = OrdersModel(ordersJson: order)
             self.ordersList.append(orderModel)
         }
     }
@@ -44,16 +44,16 @@ class OrdersModel {
     let payStatusStr: String?
     
     
-    init(ordersJson:[String : Any]) {
+    init(ordersJson:JSON) {
         
-        self.orderId = ordersJson["id"] as? Int
-        self.orderStatusStr = ordersJson["orderStatusStr"] as? String
-        self.totalFee = ordersJson["totalFee"] as? Double
-        self.freight = ordersJson["freight"] as? Double
-        self.createTime = ordersJson["createTime"] as? String
-        self.isFinished = ordersJson["isFinished"] as? Bool
-        self.shopName = ordersJson["shopName"] as? String
-        self.payStatusStr = ordersJson["payStatusStr"] as? String
+        self.orderId = ordersJson["id"].intValue
+        self.orderStatusStr = ordersJson["orderStatusStr"].stringValue
+        self.totalFee = ordersJson["totalFee"].doubleValue
+        self.freight = ordersJson["freight"].doubleValue
+        self.createTime = ordersJson["createTime"].stringValue
+        self.isFinished = ordersJson["isFinished"].boolValue
+        self.shopName = ordersJson["shopName"].stringValue
+        self.payStatusStr = ordersJson["payStatusStr"].stringValue
 
     }
 }

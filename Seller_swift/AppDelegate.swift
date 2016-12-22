@@ -8,7 +8,12 @@
 
 import UIKit
 import CoreData
- 
+
+let application = UIApplication.shared
+let appDelegate = application.delegate as! AppDelegate
+
+let userDefault:UserDefaults = UserDefaults.standard
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -31,10 +36,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          */
         
         window = UIWindow(frame: UIScreen.main.bounds)
-//        window?.rootViewController = CustomTabBarController()
-        let loginSB = UIStoryboard.init(name: "Login", bundle: Bundle.main)
-        let loginVC = loginSB.instantiateViewController(withIdentifier: "LoginNav")
-        window?.rootViewController = loginVC
+        
+//        userDefault.removeObject(forKey: "userInfo")
+        
+        let userInfo = userDefault.object(forKey: "userInfo")
+        if (userInfo != nil) {
+            window?.rootViewController = CustomTabBarController()
+        } else {
+            let loginSB = UIStoryboard.init(name: "Login", bundle: Bundle.main)
+            let loginVC = loginSB.instantiateViewController(withIdentifier: "LoginNav")
+            window?.rootViewController = loginVC
+        }
+
         window?.makeKeyAndVisible()
   
         return true

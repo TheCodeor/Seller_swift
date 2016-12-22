@@ -8,11 +8,13 @@
 
 import XCTest
 import Alamofire
+import SwiftyJSON
 
 @testable import Seller_swift
 
 class Seller_swiftTests: XCTestCase {
     
+    let userDefault:UserDefaults = UserDefaults.standard
     var vc: LoginViewController!
     
     override func setUp() {
@@ -42,9 +44,16 @@ class Seller_swiftTests: XCTestCase {
 
             XCTAssertTrue(response.reqeustState == .success)
             extion.fulfill()
-
+        
             switch response.reqeustState {
-            case .success: break
+            case .success:
+                
+                var userInfo = response.data?.dictionaryObject
+                userInfo?["token"] = response.token
+                userInfo?["userId"] = response.userId
+
+                DLog(message: userInfo)
+
             case .failture: break
             }
             

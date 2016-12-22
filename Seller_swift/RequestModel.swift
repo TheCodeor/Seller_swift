@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 enum RequestState {
     case success
@@ -15,18 +16,22 @@ enum RequestState {
 
 class RequestModel: NSObject {
     
+    let token: String?
+    let userId: Int?
     let code: Int?
     let msg: String?
-    let data: [String : Any]?
+    let data: JSON?
     let debug: String?
     let reqeustState: RequestState
 
-    init(Json:NSDictionary) {
+    init(_ json:JSON) {
         
-        self.code = Json.object(forKey: "code") as? Int ?? 9999
-        self.msg = Json.object(forKey: "msg") as? String
-        self.data = Json["data"] as? [String : Any]
-        self.debug = Json.object(forKey: "debug") as? String
+        self.code = json["code"].intValue
+        self.msg = json["msg"].stringValue
+        self.data = json["data"]
+        self.debug = json["debug"].stringValue
+        self.token = json["token"].stringValue
+        self.userId = json["userId"].intValue
         
         if self.code == 0 {
             self.reqeustState = .success

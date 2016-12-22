@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import Alamofire
 import CoreData
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
@@ -25,8 +26,9 @@ class LoginViewController: UIViewController {
         phoneField.text = "13750440152"
         pswField.text = "123456789"
         
-        UserInfoModel().getSeller()
+        addUserCoreData()
      }
+
 
     // MARK: - ACTION
     @IBAction func actionLogin(_ sender: Any) {
@@ -37,7 +39,15 @@ class LoginViewController: UIViewController {
         NetworkRequest.sharedInstance.postRequest("user.login", params: parameters, success: { response in
             
             switch response.reqeustState {
-            case .success: break
+            case .success:
+                
+                var userInfo = response.data?.dictionaryObject
+                userInfo?["token"] = response.token
+                userInfo?["userId"] = response.userId
+                
+                userDefault.set(userInfo, forKey: "userInfo")
+                userDefault.synchronize()
+                appDelegate.window?.rootViewController = CustomTabBarController()
 
             case.failture:
                 
@@ -49,11 +59,10 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func actionForgetPsw(_ sender: Any) {
-        
-        UserInfoModel().getSeller()
+        deleteAllUserCoreData()
+        printAllDataWithUserCoreData()
     }
     
-
     /*
     // MARK: - Navigation
 

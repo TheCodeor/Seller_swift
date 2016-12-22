@@ -8,20 +8,67 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 private let NetworkRequestShareInstance = NetworkRequest()
 
-let token = "nEbZIoiu+eZv31BNJ7Es0r05ogfNKSkZYoeE3bGb++xTCfwSyd3OSIzj5dC8+BZsc3JBwWWHa89yzK0+4GhxbA=="
-let userid = 450
+
 
 class NetworkRequest {
+    
     class var sharedInstance : NetworkRequest {
         return NetworkRequestShareInstance
     }
+    
+    func userJson() -> JSON {
+        if userDefault.object(forKey: "userInfo") != nil {
+            let userInfo = userDefault.object(forKey: "userInfo")
+            let userJson = JSON(userInfo!)
+            return userJson
+        }
+        return ""
+    }
+    
+    func token() -> String {
+        return  userJson()["token"].stringValue
+    }
+    
+    func userId() -> Int {
+        return  userJson()["userId"].intValue
+    }
+    
+    func deviceId() -> String {
+        let uuid = UIDevice.current.identifierForVendor 
+        return uuid!.uuidString
+    }
+    
+    func appVersion() -> String {
+        
+        let infoDictionary = Bundle.main.infoDictionary
+        let majorVersion = infoDictionary?["CFBundleShortVersionString"]
+        let appversion = majorVersion as! String
+        return appversion
+        
+    }
+    
+    func osVersion() -> String {
+        let iosversion = UIDevice.current.systemVersion  //ios 版本
+        return iosversion
+    }
+    
+    func deviceType() -> String {
+        let model = UIDevice.current.model   //设备型号
+        return model
+    }
+    
+    func brandName() -> String {
+        let systemName = UIDevice.current.systemName   //设备名称
+        return systemName
+    }
+    
 }
 
 extension NetworkRequest {
-    
     //MARK: - POST 请求
 @discardableResult  func postRequest(_ urlString : String, params : Parameters, success : @escaping (_ response : RequestModel)->(), failture : @escaping (_ error : Error)->()) -> Alamofire.Request {
         
@@ -30,16 +77,16 @@ extension NetworkRequest {
         let dataStr = NSString(data: data, encoding:String.Encoding.utf8.rawValue)!
         
         let parameters: Parameters = [
-            "deviceId":"A76AF494-FD79-4159-A6A0-9D736BCE3EBA",
-            "appVersion":"3.4.4",
-            "osVersion":"10.1",
-            "deviceType":"ios",
-            "brandName":"iPhone",
-            "token": token,
-            "userId": userid,
+            "deviceId":deviceId(),
+            "appVersion":appVersion(),
+            "osVersion":osVersion(),
+            "deviceType":deviceType(),
+            "brandName":brandName(),
+            "token": token(),
+            "userId": userId(),
             "data": dataStr
         ]
-        
+    
         DLog(message: parameters)
 
        let request = Alamofire.request("http://testapi.o2o.zhaioto.com/staff/v1/\(urlString)", method: HTTPMethod.post, parameters: parameters).responseJSON { (response) in
@@ -47,8 +94,9 @@ extension NetworkRequest {
             DLog(message: response)
             switch response.result{
             case .success:
-                if let value = response.result.value as? NSDictionary {
-                    let requestModel = RequestModel(Json:value)
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    let requestModel = RequestModel(json)
                     success(requestModel)
                 }
             case .failure(let error):

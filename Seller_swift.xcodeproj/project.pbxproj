@@ -14,9 +14,9 @@
 		6D6B787C1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B787A1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld */; };
 		6D6B787D1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B787A1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld */; };
 		6D6B787E1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B787A1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld */; };
-		6D6B78F31E0A8590004C6F50 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B78F21E0A8590004C6F50 /* UserInfoModel.swift */; };
-		6D6B78FC1E0A8F2E004C6F50 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B78FA1E0A8F2E004C6F50 /* User+CoreDataClass.swift */; };
-		6D6B78FD1E0A8F2E004C6F50 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B78FB1E0A8F2E004C6F50 /* User+CoreDataProperties.swift */; };
+		6D6B79011E0B8665004C6F50 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6B79001E0B8665004C6F50 /* SwiftyJSON.framework */; };
+		6D6B79041E0BC1F2004C6F50 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B79021E0BC1F2004C6F50 /* User+CoreDataClass.swift */; };
+		6D6B79051E0BC1F2004C6F50 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B79031E0BC1F2004C6F50 /* User+CoreDataProperties.swift */; };
 		6D7D0B1A1DAF3D9E00669D94 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7D0B191DAF3D9E00669D94 /* OrderTableViewCell.swift */; };
 		6D7D0B211DAF5B6900669D94 /* SnapKit.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6D7D0B201DAF5B6900669D94 /* SnapKit.framework.dSYM */; };
 		6D947D511DAE3CD200415481 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D947D501DAE3CD200415481 /* AppDelegate.swift */; };
@@ -74,9 +74,9 @@
 		6D6B78701E0934D3004C6F50 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6D6B78721E093A0D004C6F50 /* FPEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPEditView.swift; sourceTree = "<group>"; };
 		6D6B787B1E0A71F2004C6F50 /* Seller_swift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Seller_swift.xcdatamodel; sourceTree = "<group>"; };
-		6D6B78F21E0A8590004C6F50 /* UserInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
-		6D6B78FA1E0A8F2E004C6F50 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6D6B78FB1E0A8F2E004C6F50 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D6B79001E0B8665004C6F50 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		6D6B79021E0BC1F2004C6F50 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D6B79031E0BC1F2004C6F50 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6D7D0B191DAF3D9E00669D94 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		6D7D0B201DAF5B6900669D94 /* SnapKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SnapKit.framework.dSYM; path = ../Carthage/Build/iOS/SnapKit.framework.dSYM; sourceTree = "<group>"; };
 		6D7D0B221DB0903900669D94 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -110,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6B79011E0B8665004C6F50 /* SwiftyJSON.framework in Frameworks */,
 				6D9517DB1DFF8F540091C763 /* SnapKit.framework in Frameworks */,
 				6D9517D81DFF8BB20091C763 /* Alamofire.framework in Frameworks */,
 			);
@@ -136,6 +137,7 @@
 		6D7D0B1B1DAF5AD900669D94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D6B79001E0B8665004C6F50 /* SwiftyJSON.framework */,
 				6D9517DA1DFF8F540091C763 /* SnapKit.framework */,
 				6D7D0B221DB0903900669D94 /* Alamofire.framework */,
 			);
@@ -145,8 +147,6 @@
 		6D947D441DAE3CD200415481 = {
 			isa = PBXGroup;
 			children = (
-				6D6B78FA1E0A8F2E004C6F50 /* User+CoreDataClass.swift */,
-				6D6B78FB1E0A8F2E004C6F50 /* User+CoreDataProperties.swift */,
 				6D947D4F1DAE3CD200415481 /* Seller_swift */,
 				6D947D641DAE3CD200415481 /* Seller_swiftTests */,
 				6D947D6F1DAE3CD200415481 /* Seller_swiftUITests */,
@@ -170,7 +170,6 @@
 			children = (
 				6D947D501DAE3CD200415481 /* AppDelegate.swift */,
 				6D6B78701E0934D3004C6F50 /* LoginViewController.swift */,
-				6D6B78F21E0A8590004C6F50 /* UserInfoModel.swift */,
 				6D947D861DAF212B00415481 /* CustomTabBarController.swift */,
 				6D947D881DAF217D00415481 /* CustomNavController.swift */,
 				6D947D7E1DAF1CB300415481 /* NewOrderViewController.swift */,
@@ -183,6 +182,8 @@
 				6D947D841DAF1D5F00415481 /* MyViewController.swift */,
 				6D947D8A1DAF2F7D00415481 /* UIColorHex.swift */,
 				6D6B78721E093A0D004C6F50 /* FPEditView.swift */,
+				6D6B79021E0BC1F2004C6F50 /* User+CoreDataClass.swift */,
+				6D6B79031E0BC1F2004C6F50 /* User+CoreDataProperties.swift */,
 				6D947D541DAE3CD200415481 /* Main.storyboard */,
 				6D6B786E1E093498004C6F50 /* Login.storyboard */,
 				6D947D571DAE3CD200415481 /* Assets.xcassets */,
@@ -356,6 +357,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 			);
@@ -376,15 +378,14 @@
 				6DB897801E01278B00DE6579 /* NewOrderModel.swift in Sources */,
 				6D6B78731E093A0D004C6F50 /* FPEditView.swift in Sources */,
 				6D947D811DAF1CFC00415481 /* ManageOrderViewController.swift in Sources */,
+				6D6B79041E0BC1F2004C6F50 /* User+CoreDataClass.swift in Sources */,
 				6D947D891DAF217D00415481 /* CustomNavController.swift in Sources */,
 				6D6B787C1E0A71F2004C6F50 /* Seller_swift.xcdatamodeld in Sources */,
-				6D6B78FD1E0A8F2E004C6F50 /* User+CoreDataProperties.swift in Sources */,
-				6D6B78FC1E0A8F2E004C6F50 /* User+CoreDataClass.swift in Sources */,
 				6D947D8B1DAF2F7D00415481 /* UIColorHex.swift in Sources */,
 				6DB897821E0128E600DE6579 /* RequestModel.swift in Sources */,
-				6D6B78F31E0A8590004C6F50 /* UserInfoModel.swift in Sources */,
 				6D7D0B1A1DAF3D9E00669D94 /* OrderTableViewCell.swift in Sources */,
 				6D947D851DAF1D5F00415481 /* MyViewController.swift in Sources */,
+				6D6B79051E0BC1F2004C6F50 /* User+CoreDataProperties.swift in Sources */,
 				6DB897841E0130C600DE6579 /* NetworkRequest.swift in Sources */,
 				6D6B78711E0934D3004C6F50 /* LoginViewController.swift in Sources */,
 				6D947D511DAE3CD200415481 /* AppDelegate.swift in Sources */,

@@ -1,20 +1,21 @@
 //
-//  CustomTabBarController.swift
+//  OrderDetialViewController.swift
 //  Seller_swift
 //
-//  Created by fanpeng on 16/10/13.
-//  Copyright © 2016年 fanpeng. All rights reserved.
+//  Created by fanpeng on 17/2/4.
+//  Copyright © 2017年 fanpeng. All rights reserved.
 //
 
 import UIKit
 
-class CustomTabBarController: UITabBarController {
+class OrderDetialViewController: UIViewController {
+    
+    var orderId = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = UIColor.white
-
+        
+        DLog(message: orderId)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +35,3 @@ class CustomTabBarController: UITabBarController {
     */
 
 }
-
-
-

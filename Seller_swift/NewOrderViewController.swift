@@ -10,35 +10,24 @@ import UIKit
 import SnapKit
 import Alamofire
 
-
 class NewOrderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     let initIdentifier = "OrderCell"
+    var pageCount = 1
+    var orderList:[OrdersModel] = []
     
-    var orderList: NSArray = []
-    var orderTableView: UITableView!
+    @IBOutlet weak var orderTableView: UITableView!
     
     func creatTableView() {
-        
-        orderTableView = UITableView(frame: self.view.bounds, style: .plain)
-        orderTableView.delegate = self
-        orderTableView.dataSource = self
-        orderTableView.rowHeight = 133.0
-        orderTableView.tableHeaderView = self.creatTableViewHeader()
-        self.view.addSubview(orderTableView)
-        
-        orderTableView.separatorColor = UIColor.clear
-        orderTableView.register(OrderTableViewCell.self, forCellReuseIdentifier: initIdentifier)
+        orderTableView.rowHeight = 140.0
     }
     
-    func creatTableViewHeader() -> UIView {
+    func creatTableViewHeader(orderNumber: String, totalPrice: String) -> UIView {
         
         let label = UILabel(frame:CGRect(x: 0, y: 0, width: 320, height: 44))
         label.font = UIFont.systemFont(ofSize: 15)
         
-        let orderNumber = "22"
-        let totalPrice = "0.13"
         let string = "共计\(orderNumber)单，金额\(totalPrice)元"
         
         let attStr = NSMutableAttributedString.init(string: string )
@@ -58,18 +47,27 @@ class NewOrderViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func  requestOrderLists() {
         
-        let parameters: Parameters = ["status": 2,"page": 1]
+        let parameters: Parameters = ["status": 2,"page": pageCount]
         NetworkRequest.sharedInstance.postRequest("order.lists", params: parameters, success: { response in
             
             switch response.reqeustState {
             case .success:
                 let newOrderModel = NewOrderModel(dataJson: response.data!)
-                self.orderList = newOrderModel.ordersList as NSArray
+                if !newOrderModel.ordersList.isEmpty {
+                    self.orderList += newOrderModel.ordersList
+                } else {
+                    self.orderTableView.es_noticeNoMoreData()
+                }
+                
+                
+                self.orderTableView.tableHeaderView = self.creatTableViewHeader(orderNumber: newOrderModel.count!, totalPrice: newOrderModel.amount!)
             case.failture:
                 DLog(message: "faile")
             }
             self.orderTableView.reloadData()
-            
+            self.orderTableView.es_stopPullToRefresh(ignoreDate: true)
+            self.orderTableView.es_stopLoadingMore()
+
         }, failture: { error in })
         
     }
@@ -82,6 +80,24 @@ class NewOrderViewController: UIViewController,UITableViewDelegate,UITableViewDa
         creatTableView()
 
         requestOrderLists()
+        
+        self.orderTableView.es_addPullToRefresh {
+            [weak self] in
+            self?.orderList.removeAll()
+            self?.requestOrderLists()
+        }
+        
+        self.orderTableView.es_addInfiniteScrolling {
+            [weak self] in
+            /// 在这里做加载更多相关事件
+            /// ...
+            self?.pageCount += 1
+            self?.requestOrderLists()
+            /// 如果你的加载更多事件成功，调用es_stopLoadingMore()重置footer状态
+//            self?.orderTableView.es_stopLoadingMore()
+//            /// 通过es_noticeNoMoreData()设置footer暂无数据状态
+
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,7 +109,7 @@ class NewOrderViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: initIdentifier) as! OrderTableViewCell
         
         if self.orderList.count != 0 {
-            let ordersModel = self.orderList.object(at: indexPath.row) as! OrdersModel
+            let ordersModel = self.orderList[indexPath.row]
             cell.setCellData(ordersModel)
         }
         
@@ -102,11 +118,20 @@ class NewOrderViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         DLog(message: "点击了\(indexPath.row)行")
+        let orderModel = self.orderList[indexPath.row]
+        self.performSegue(withIdentifier: "OrderDetialViewController", sender: orderModel.orderId)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+     // MARK: - Navigation
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "OrderDetialViewController" {
+            let orderDetialVC = segue.destination as! OrderDetialViewController
+            orderDetialVC.orderId = sender as! Int
+        }
+     }
 
 }

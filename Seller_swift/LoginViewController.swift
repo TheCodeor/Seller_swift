@@ -26,7 +26,6 @@ class LoginViewController: UIViewController {
         phoneField.text = "13750440152"
         pswField.text = "123456789"
         
-        addUserCoreData()
      }
 
 
@@ -47,7 +46,9 @@ class LoginViewController: UIViewController {
                 
                 userDefault.set(userInfo, forKey: "userInfo")
                 userDefault.synchronize()
-                appDelegate.window?.rootViewController = CustomTabBarController()
+                
+                let storyBoard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+                appDelegate.window?.rootViewController = storyBoard.instantiateInitialViewController()
 
             case.failture:
                 

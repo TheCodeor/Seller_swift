@@ -12,16 +12,16 @@ import SwiftyJSON
 
 class NewOrderModel {
     
-    let count: Int?
+    let count: String?
     let ingCount: Int?
-    let amount: Double?
+    let amount: String?
     var ordersList = [OrdersModel]()
     
     init(dataJson:JSON) {
         
-        self.count = dataJson["count"].intValue
+        self.count = dataJson["count"].stringValue
         self.ingCount = dataJson["ingCount"].intValue
-        self.amount = dataJson["amount"].doubleValue
+        self.amount = dataJson["amount"].stringValue
         let ordersArray = dataJson["orders"].arrayValue
         
         for order in ordersArray {

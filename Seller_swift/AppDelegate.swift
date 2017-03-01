@@ -41,7 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let userInfo = userDefault.object(forKey: "userInfo")
         if (userInfo != nil) {
-            window?.rootViewController = CustomTabBarController()
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+            window?.rootViewController = storyBoard.instantiateInitialViewController()
         } else {
             let loginSB = UIStoryboard.init(name: "Login", bundle: Bundle.main)
             let loginVC = loginSB.instantiateViewController(withIdentifier: "LoginNav")
